@@ -1,0 +1,23 @@
+{
+    "$id": "https://example.com/rejectinvite.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "rejectinvite",
+    "description": "Reject invite object for POST request",
+    "type": "object",
+    "properties": {
+      "requestType": {
+        "description": "The object type should be rejectinvite",
+        "type": "string",
+        "pattern": "^rejectinvite$"
+      },
+      "invite_id": {
+        "type": "string",
+        "description": "The unique ID of the invite to be rejected."
+      }
+    },
+    "required": [
+        "requestType",
+        "invite_id"
+    ],
+    "additionalProperties": false
+}

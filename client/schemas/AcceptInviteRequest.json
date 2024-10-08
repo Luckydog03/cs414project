@@ -1,0 +1,20 @@
+{
+    "$id": "https://example.com/acceptinvite.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "acceptinvite",
+    "description": "Accept invite object for POST request",
+    "type": "object",
+    "properties": {
+        "requestType": {
+            "description": "The object type should be acceptinvite",
+            "type": "string",
+            "pattern": "^acceptinvite$"
+        },
+        "invite_id": {
+            "type": "string",
+            "description": "The unique ID of the invite to be accepted."
+        }
+    },
+    "required": ["requestType", "invite_id"],
+    "additionalProperties": true
+}

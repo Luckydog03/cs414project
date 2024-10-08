@@ -1,0 +1,23 @@
+{
+    "$id": "https://example.com/readinvite.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "readgameboard",
+    "description": "Read gameboard object for http request",
+    "type": "object",
+    "properties": {
+        "requestType": {
+            "description": "the object type should be redgameboard",
+            "type": "string",
+            "pattern": "^readgameboard$"
+        },
+        "match_id": {
+            "type": "string",
+            "description": "The match ID to retrieve gameboard stats for."
+        }
+    },
+    "required": [
+        "requestType",
+        "match_id"
+    ],
+    "additionalProperties": false
+}

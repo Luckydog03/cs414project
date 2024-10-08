@@ -1,0 +1,33 @@
+{
+    "$id": "https://example.com/readinvite.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "updategameboard",
+    "description": "updategameboard object for http request",
+    "type": "object",
+    "properties": {
+        "requestType": {
+            "description": "the object type should be updategameboard",
+            "type": "string",
+            "pattern": "^updategameboard$"
+        },
+        "match_id": {
+            "type": "string",
+            "description": "The match ID to retrieve gameboard stats for."
+        },
+        "fen_state": {
+            "type": "string",
+            "description": "The fenstring used to update the gameboard stats."
+        },
+        "user_id": {
+            "type": "string",
+            "description": "The user ID to check proper credentials."
+        }
+    },
+    "required": [
+        "requestType",
+        "match_id",
+        "fen_state",
+        "user_id"
+    ],
+    "additionalProperties": false
+}

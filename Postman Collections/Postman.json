@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "0cbe5166-187e-4eca-825f-926dbddf8de5",
+		"name": "414-api-tests",
+		"description": "This collection contains tests for the various API requests in the CS314 webapp.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http requests",
+			"item": [
+				{
+					"name": "Config Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e28de377-cca2-4a46-9eb0-07c54e35ed61",
+								"exec": [
+									"pm.test(\"Response is HTTP200 status\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.collectionVariables.set(\"TEAM_NAME\", \"t57 Dungeons and Debuggers\");",
+									"",
+									"pm.test(\"Server-side team name is correct\", () => {",
+									"    const response = pm.response.json();",
+									"    const expectedTeamName = pm.collectionVariables.get(\"TEAM_NAME\");",
+									"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c618406f-e631-4f22-97cf-5b2a7572205f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestType\": \"config\",\n    \"features\": [\"config\"] \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/config",
+						"description": "Testing the result of Config Post requests."
+					},
+					"response": []
+				},
+				{
+					"name": "LoginRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3db6256-2c27-4821-920a-13080fa5baef",
+								"exec": [
+									"pm.test(\"Response is HTTP200 status\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "985cb7e9-f0a4-4da3-bfa8-d5e9291069db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\": \"login\",\n  \"email\" : \"bacon1@gmail.com\",\n  \"password\" : \"pinacolada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "ReadInvite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3db6256-2c27-4821-920a-13080fa5baef",
+								"exec": [
+									"pm.test(\"Response is HTTP200 status\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "569d5eb2-17a9-475d-a0fe-06b43691f627",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\": \"readinvite\",\n  \"receiver_id\": \"236272\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/readinvite"
+					},
+					"response": []
+				},
+				{
+					"name": "ReadMatchrequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3db6256-2c27-4821-920a-13080fa5baef",
+								"exec": [
+									"pm.test(\"Response is HTTP200 status\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9d8bd081-7dc0-4c98-87ad-477b18ff52d2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\": \"readmatch\",\n  \"receiver_id\": \"236272\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/readmatch"
+					},
+					"response": []
+				},
+				{
+					"name": "ReadUserRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3db6256-2c27-4821-920a-13080fa5baef",
+								"exec": [
+									"pm.test(\"Response is HTTP200 status\", () => {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "4e0b2897-2065-45bd-acb6-536afc4c0fec",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\": \"readuser\",\n  \"receiver_id\": \"236272\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/readuser"
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3898967-ea3b-4ac2-8bfa-d779250c74c5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a31c7c83-a9c2-4254-a400-5c3e0b18d628",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\": \"register\",\n  \"email\" : \"bacon1@gmail.com\",\n  \"password\" : \"pinacolada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Send Invite Post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "914f0084-d977-4776-b036-e0bbf1670d52",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "671be755-10b3-47f6-aaa8-b964535e56fc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\": \"sendinvite\",\n  \"sender_user_id\" : \"657417\",\n  \"receiver_email\" : \"bacon1@gmail.com\"\n}"
+						},
+						"url": "{{BASE_URL}}/api/sendinvite"
+					},
+					"response": []
+				}
+			],
+			"id": "8a3f8369-8154-49ca-841d-4a559aeac224"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "54e96fa3-7791-4d17-a4b3-01310cf29b99",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "976664e0-ccc5-4557-8c50-ae5d9f7b42f0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CURRENT_VERSION",
+			"value": "1"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "TEAM_NAME",
+			"value": "t24 Goblins and Gnomes"
+		}
+	]
+}
