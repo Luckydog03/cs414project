@@ -1,0 +1,24 @@
+{
+    "$id": "https://example.com/address.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "sendinvite",
+    "description": "Send invite object for POST request",
+    "type": "object",
+    "properties": {
+        "requestType": {
+            "description": "the object type should be sendinvite",
+            "type": "string",
+            "pattern": "^sendinvite$"
+        },
+        "sender_user_id": {
+            "type": "string",
+            "description": "The sender's user ID."
+        },
+        "receiver_email": {
+            "type": "string",
+            "description": "The receiver's email."
+        }
+    },
+    "required": ["requestType", "sender_user_id", "receiver_email"],
+    "additionalProperties": true
+}

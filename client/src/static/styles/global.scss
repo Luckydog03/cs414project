@@ -1,0 +1,93 @@
+// Text Styles
+
+a {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.tco-text {
+    font-family: "prox-light", sans-serif;
+    font-size: 16px;
+    color: white;
+}
+
+.tco-text-upper {
+    font-family: "prox-light", sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: white;
+}
+
+// Class Useful for Vertical Centering
+
+.vertical-center {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+// Map Styles
+
+.mapStyle {
+    height: 40vh;
+    width: 100%;
+}
+
+.trip-header-title {
+    width: 100%;
+}
+
+.selected-row {
+    background-color: #c8c372;
+}
+
+.trip-header-actions {
+    width: 0.1em;
+}
+
+// The following variable declarations create our color theme
+
+// CSU (CSU - Primary)
+
+$csu-green: #1e4d2b;
+$csu-gold: #c8c372;
+$csu-white: #ffffff;
+
+// Aggie (CSU - Secondary)
+
+$black-80: #59595b;
+$aggie-orange: #d9782d;
+
+// Tertiary (CSU - Tertiary)
+
+$alfalfa: #c9d845;
+$canyon: #cc5430;
+$dark-slate: #105456;
+$reservoir: #12a4b6;
+$sunshine: #ecc530;
+
+// Color Theme
+$primary: $csu-green;
+$secondary: $black-80;
+$success: $dark-slate;
+$info: $reservoir;
+$warning: $sunshine;
+$danger: $canyon;
+$link: $dark-slate;
+
+// Import (The Following Must Be In This Order At Bottom Of File!)
+
+// Header / Footer CSS
+
+@import "src/static/styles/header";
+
+// Student Styles
+
+@import "src/static/styles/student-styles";
+
+// Bootstrap
+
+@import "~bootstrap/scss/bootstrap";

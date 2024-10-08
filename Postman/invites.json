@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "94f48b2d-9395-4b42-bc80-678978c7e2aa",
+		"name": "invites",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23559509"
+	},
+	"item": [
+		{
+			"name": "Send Invite 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"sendinvite\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    requestType: 'sendinvite',\n    sender_user_id: '485902',\n    receiver_email: 'bacon@gmail.com'\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/sendinvite",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"sendinvite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject Invite 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    requestType: 'rejectinvite',\n    invite_id: '15'\n}"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/rejectinvite",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"rejectinvite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Invite 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.test(\"Status code is 200\", function () {",
+							"//     pm.response.to.have.status(200);",
+							"// });",
+							"",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.match_id).to.not.eql(null);",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    requestType: 'acceptinvite',\n    invite_id: '16'\n}\n"
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/acceptinvite",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"acceptinvite"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

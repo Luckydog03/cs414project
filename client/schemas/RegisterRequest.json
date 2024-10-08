@@ -1,0 +1,24 @@
+{
+    "$id": "https://example.com/address.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "register",
+    "description": "register object for POST request",
+    "type": "object",
+    "properties": {
+        "requestType": {
+            "description": "the object type should be register",
+            "type": "string",
+            "pattern": "^register$"
+        },
+        "email": {
+            "description": "the object type should be register",
+            "type": "string"
+        },
+        "password": {
+            "description": "the object type should be register",
+            "type": "string"
+        }
+    },
+    "required": ["requestType", "email", "password"],
+    "additionalProperties": true
+}

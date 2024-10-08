@@ -1,0 +1,23 @@
+{
+    "$id": "https://example.com/readinvite.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "readinvite",
+    "description": "Read invite object for WebSocket request",
+    "type": "object",
+    "properties": {
+        "requestType": {
+            "description": "the object type should be readinvite",
+            "type": "string",
+            "pattern": "^readinvite$"
+        },
+        "receiver_id": {
+            "type": "string",
+            "description": "The receiver's user ID to retrieve invites for."
+        }
+    },
+    "required": [
+        "requestType",
+        "receiver_id"
+    ],
+    "additionalProperties": false
+}
